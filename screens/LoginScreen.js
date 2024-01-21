@@ -4,13 +4,50 @@ import { auth } from '../firebase';
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
 import { Alert } from 'react-native';
-
+import { doc } from 'firebase/firestore';
+import { db} from '../firebase';
+ import { getDoc } from 'firebase/firestore';
 const LoginScreen = () => {
 const[email,setEmail]=useState('');
 const[password,setPassword]=useState('');
 
 const navigation = useNavigation()
 
+// useEffect(()=>{
+//     const unsubscribe = auth.onAuthStateChanged(user =>{
+//         if(user){
+//             navigation.replace("Login")
+//         }
+//     })
+//     return unsubscribe
+// },[])
+// const signIn = async () => {
+   
+//   try {
+        
+//         const userCredential = await signInWithEmailAndPassword(auth, email, password);
+//         const user = userCredential.user;
+//         // Assuming you have a collection named 'users' in Firestore
+//         const userDocRef = doc(db, 'userrs', user.uid);
+//         const userDoc = await getDoc(userDocRef);
+        
+//         if (userDoc.exists()) {
+//           const userData = userDoc.data();
+//           if (userData.role === 'admin') {
+        
+//             navigation.replace("Admin")
+//           } else {
+           
+//             navigation.replace("Home")
+//           }
+//         }
+//         // navigation.replace("DrawerGroup")
+//       }
+//     catch (err) {
+//       console.error(err);
+//       Alert.alert('Error', err.message);// Set the error message in state
+//     }
+//   };
 //useffect 
 useEffect(()=>{
     const unsubscribe = auth.onAuthStateChanged(user =>{
