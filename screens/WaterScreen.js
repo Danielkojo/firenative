@@ -322,7 +322,7 @@ import { db, auth } from '../firebase';
 import { collection, query, where, getDocs, runTransaction, addDoc } from 'firebase/firestore';
 import { SelectList } from 'react-native-dropdown-select-list';
 import { useState,useEffect } from 'react';
-const Payments = () => {
+const WaterScreen = () => {
   const [BreadType, setBreadType] = useState('');
   const [Size, setSize] = useState('');
   const [purchaseQuantity, setPurchaseQuantity] = useState(0);
@@ -331,16 +331,15 @@ const Payments = () => {
   // ... other states and useEffect ...
 
   const breadTypeOptions = [
-    {key: 'SugarBread', value: 'SugarBread'},
+    {key: 'WaterBag', value: 'WaterBag'},
     {key: 'ButterBread', value: 'ButterBread'},
     // ... other bread types ...
   ];
 
-  const sizeOptions = [
-    {key: 'Small', value: 'Small'},
-    {key: 'Large', value: 'Large'},
-    // ... other sizes ...
-  ];
+  const sizeOptions ={
+    'WaterBag':[{key:'NormalSachet', value:'NormalSachet'},{key:'2', value:'Small'}],
+    'WaterBottle':[{key:'3', value:' Big'},{key:'4', value:'Small'}]
+  }
 
 
   
@@ -424,7 +423,7 @@ const Payments = () => {
       />
       <SelectList
         setSelected={setSize}
-        data={sizeOptions}
+        data={sizeOptions[BreadType]}
         placeholder="Select Size"
       />
       <TextInput
@@ -455,4 +454,4 @@ const styles = StyleSheet.create({
   // Add styles for SelectList if needed
 });
 
-export default Payments;
+export default WaterScreen;

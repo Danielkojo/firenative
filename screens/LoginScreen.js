@@ -52,7 +52,7 @@ const navigation = useNavigation()
 useEffect(()=>{
     const unsubscribe = auth.onAuthStateChanged(user =>{
         if(user){
-            navigation.replace("Home")
+            navigation.replace("Toptab")
         }
     })
     return unsubscribe

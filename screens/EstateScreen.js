@@ -7,7 +7,7 @@ import { signOut } from 'firebase/auth';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 
-const AdminScreen = () => {
+const EstateScreen = () => {
 const navigation = useNavigation();
 const [category,setCategory]=React.useState("")
 const [subCategory,setSubCategory]=React.useState("")
@@ -58,7 +58,7 @@ defaultOption={subcategories[category[0]]}
   )
 }
 
-export default AdminScreen
+export default EstateScreen
  
 // const styles = StyleSheet. create({
 // container:{
